@@ -20,17 +20,15 @@ def sample():
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <div class="carousel-item active">
-      <img src="{}" alt="First slide".format(url_for('static', filename='img/Риана.png'))>
+      <img src="{}" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img src="{}" alt="Second slide".format(url_for('static', filename='img/Попугай.png'))>>
+      <img src="{}" alt="Second slide">>
     </div>
     <div class="carousel-item">
       <img src="http://127.0.0.1:8080/static/img/fox.jpg" alt="Third slide">
     </div>
-  </div>
-
-'''
+  </div>'''.format(url_for('static', filename='img/Риана.png'), url_for('static', filename='img/Попугай.png'))
 
 
 if __name__ == '__main__':
