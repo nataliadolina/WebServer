@@ -5,7 +5,7 @@
     <title>Четное-нечетное</title>
 </head>
 <body>
-    {% if type(number) != int %}
+    {% if number == False %}
     <div>{{ number }} не является корректным целым числом</div>
     {% elif number % 2 == 0 %}
     <div>{{ number }} - четное</div>

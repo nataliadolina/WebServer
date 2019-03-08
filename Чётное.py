@@ -28,8 +28,12 @@ def odd_even():
                               <form>
                           <body>'''
     elif request.method == 'POST':
-        print(request.form['number'])
-        return render_template('templates/odd_even.html', number=request.form['number'])
+        n = request.form['number']
+        if not n.isdigit():
+            n = False
+        else:
+            n = int(n)
+        return render_template('odd_even', number=n)
 
 
 if __name__ == '__main__':
