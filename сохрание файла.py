@@ -29,7 +29,7 @@ def form_sample():
                           <body>'''
     elif request.method == 'POST':
         f = request.files['file']
-        f.save()
+        f.read()
         return 'форма отправлена'
 
 
