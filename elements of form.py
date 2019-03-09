@@ -65,7 +65,7 @@ def form_sample():
         print(request.form['password'])
         print(request.form['class'])
         print(request.form['about'])
-        print(request.form['accept'])
+        print(request.form.get('accept'))
         print(request.form['sex'])
         return "Форма отправлена"
 
