@@ -22,8 +22,6 @@ def login():
     form = LoginForm()
     with open("static/json_files/logins_passwords", "rt", encoding="utf8") as f:
         f = json.loads(f.read())
-    print(request.form)
-    print(f)
     if form.validate_on_submit():
         for i in range(len(f)):
             if request.form['username'] in f[i]['login'] and request.form['password'] in f[i]['password']:
