@@ -1,9 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, url_for
 
 app = Flask(__name__)
 
 
-@app.route('/form_sample', methods=['POST', 'GET'])
+@app.route('/file_sample', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
         return '''<!doctype html>
@@ -28,7 +28,9 @@ def form_sample():
                             <form>
                           <body>'''
     elif request.method == 'POST':
-        return 'Форма отправлена'
+        f = request.files['file']
+        f.save()
+        return 'форма отправлена'
 
 
 if __name__ == '__main__':
