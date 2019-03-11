@@ -20,7 +20,7 @@ class LoginForm(FlaskForm):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    with open("static/json_files/logins_passwords", "rt", encoding="utf8") as f:
+    with open("json_files/logins_passwords", "rt", encoding="utf8") as f:
         f = json.loads(f.read())
     if form.validate_on_submit():
         for i in range(len(f)):
