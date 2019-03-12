@@ -29,3 +29,14 @@ class DB:
         cursor.execute("SELECT * FROM users")
         rows = cursor.fetchall()
         return rows
+
+    def insert(self, user_name, password_hash):
+        cursor = self.connection.cursor()
+        cursor.execute('''INSERT INTO users 
+                          (user_name, password_hash) 
+                          VALUES (?,?,?)''', (user_name, password_hash))
+        cursor.close()
+        self.connection.commit()
+
+
+
