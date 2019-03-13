@@ -1,10 +1,9 @@
 import sqlite3
 
 
-class DB:
-    def __init__(self):
-        conn = sqlite3.connect('users.db', check_same_thread=False)
-        self.connection = conn
+class UsersModel:
+    def __init__(self, connection):
+        self.connection = connection
 
     def init_table(self):
         cursor = self.connection.cursor()
