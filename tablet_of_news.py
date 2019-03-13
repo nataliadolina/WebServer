@@ -3,7 +3,8 @@ import sqlite3
 
 class NewsModel:
     def __init__(self, conn):
-        self.connection = conn
+        self.db = conn
+        self.connection = self.db.get_connection()
 
     def init_table(self):
         cursor = self.connection.cursor()
@@ -15,9 +16,6 @@ class NewsModel:
                              )''')
         cursor.close()
         self.connection.commit()
-
-    def get_connection(self):
-        return self.connection
 
     def insert(self, title, content, user_id):
         cursor = self.connection.cursor()

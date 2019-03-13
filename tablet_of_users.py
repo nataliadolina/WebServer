@@ -3,7 +3,8 @@ import sqlite3
 
 class UsersModel:
     def __init__(self, connection):
-        self.connection = connection
+        self.db = connection
+        self.connection = self.db.get_connection()
 
     def init_table(self):
         cursor = self.connection.cursor()
@@ -14,9 +15,6 @@ class UsersModel:
                              )''')
         cursor.close()
         self.connection.commit()
-
-    def get_connection(self):
-        return self.connection
 
     def exists(self, user_name, password_hash):
         cursor = self.connection.cursor()
@@ -40,6 +38,6 @@ class UsersModel:
         cursor = self.connection.cursor()
         cursor.execute('''INSERT INTO users 
                           (user_name, password_hash) 
-                          VALUES (?,?,?)''', (user_name, password_hash))
+                          VALUES (?,?)''', (user_name, password_hash))
         cursor.close()
         self.connection.commit()
