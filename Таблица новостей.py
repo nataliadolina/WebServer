@@ -8,21 +8,14 @@ class NewsModel:
 
     def init_table(self):
         cursor = self.connection.cursor()
-        cursor.execute('''CREATE TABLE IF NOT EXISTS users 
-                            (id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                             user_name VARCHAR(50),
-                             password_hash VARCHAR(128)
-                             )''')
-        cursor.close()
-        self.connection.commit()
-
-    def __init__(self):
-        self.connection = sqlite3.connect('''CREATE TABLE IF NOT EXISTS news 
+        cursor.execute('''CREATE TABLE IF NOT EXISTS news 
                                     (id INTEGER PRIMARY KEY AUTOINCREMENT, 
                                      title VARCHAR(100),
                                      content VARCHAR(1000),
-                                     user_id INTEGER
-                                    )''', check_same_thread=False)
+                                     user_id INTEGER 
+                             )''')
+        cursor.close()
+        self.connection.commit()
 
     def get_connection(self):
         return self.connection
