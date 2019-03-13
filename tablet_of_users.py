@@ -3,11 +3,18 @@ import sqlite3
 
 class DB:
     def __init__(self):
-        self.connection = sqlite3.connect('''CREATE TABLE IF NOT EXISTS users 
+        conn = sqlite3.connect('news.db', check_same_thread=False)
+        self.connection = conn
+
+    def init_table(self):
+        cursor = self.connection.cursor()
+        cursor.execute('''CREATE TABLE IF NOT EXISTS users 
                             (id INTEGER PRIMARY KEY AUTOINCREMENT, 
                              user_name VARCHAR(50),
                              password_hash VARCHAR(128)
-                             )''', check_same_thread=False)
+                             )''')
+        cursor.close()
+        self.connection.commit()
 
     def get_connection(self):
         return self.connection
@@ -37,6 +44,3 @@ class DB:
                           VALUES (?,?,?)''', (user_name, password_hash))
         cursor.close()
         self.connection.commit()
-
-
-
