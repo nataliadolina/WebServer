@@ -2,8 +2,7 @@ import sqlite3
 
 
 class NewsModel:
-    def __init__(self):
-        conn = sqlite3.connect('news.db', check_same_thread=False)
+    def __init__(self, conn):
         self.connection = conn
 
     def init_table(self):
