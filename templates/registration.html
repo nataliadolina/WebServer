@@ -1,7 +1,12 @@
-{% extends "password_base.html" %}
-
-{% block content %}
-    <a href="/registration">Зарегистрироваться</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Регистрация</h1>
+<a href="/login">У меня уже есть аккаунт</a>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -22,8 +27,8 @@
                 </div>
             {% endfor %}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
-    <h2>{{ text }}</h2>
-{% endblock %}
+<h2>{{ text }}</h2>
+</body>
+</html>
