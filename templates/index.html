@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 {% block content %}
+=======
+{% extends "base.html" %}
+{% block content %}
+<a href="/registration">Зарегистрироваться</a>
+>>>>>>> origin/master
 <a href="/add_news">Добавить новость</a>
 {% for item in news %}
     <div class="alert alert-dark" role="alert">
@@ -7,3 +13,7 @@
         <a href="/delete_news/{{item[0]}}">Удалить новость</a>
     </div>
 {% endfor %}
+<<<<<<< HEAD
+=======
+{% endblock %}
+>>>>>>> origin/master
